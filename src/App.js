@@ -22,7 +22,8 @@ function App() {
                 </a>
               <ul>
                 {["foo", "bar"].map(name => <li><Hello name={name}/></li>)}
-                <li><Hello name={"hoge"}/></li>
+                  <li><Hello name={"hoge"}/></li>
+                  <li><Hello /></li>
                 <li><Hello/></li>
               </ul>
             </header>
