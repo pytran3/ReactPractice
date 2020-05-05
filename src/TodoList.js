@@ -8,9 +8,9 @@ export default class TodoList extends Component {
         });
         return (
             <div>
-                <li>
+                <ul>
                     {list}
-                </li>
+                </ul>
             </div>
         )
     }
