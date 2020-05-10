@@ -1,15 +1,25 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from "redux";
-import tasksReducer from "./reducers/tasks";
-import TodoApp from "./containers/TodoApp";
+import {Route} from "react-router-dom"
 import {Provider} from "react-redux";
+import {ConnectedRouter} from 'connected-react-router'
+import createBrowserHistory from 'history/createBrowserHistory'
+import TodoApp from "./containers/TodoApp";
+import Error from "./components/Error"
+import createStore from "./store";
 
+const history = createBrowserHistory();
 
-const store = createStore(tasksReducer);
+const store = createStore(history);
+
 render(
     <Provider store={store}>
-        <TodoApp />
+        <ConnectedRouter history={history}>
+            <div>
+                <Route exact path="/" component={TodoApp} />
+                <Route exact path="/error" component={Error} />
+            </div>
+        </ConnectedRouter>
     </Provider>,
     document.getElementById("root")
 );
